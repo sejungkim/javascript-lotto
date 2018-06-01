@@ -54,23 +54,31 @@ function getNumberOfLottos(money, lottoPrice) {
 }
 ```
 
-#### 2.4. 로또 조합 만드는 함수
+#### 2.4. 로또 조합 만드는 함수 @
 ```javascript
 function getLottoSet() {
-  // 1. 1에서 45사이의 숫자 중 랜덤 숫자를 만든다.
-  // 2. 이전에 만든 숫자와 중복이 되는지 확인한다.
-  // 3. 중복이면 1, 2를 다시 진행한다.
-  // 4. 중복이 아니라면 배열에 넣는다.
-  // 5. 위 과정을 숫자가 6개가 될 때까지 반복한다.
-  // 6. 만들어진 6개의 랜덤 숫자를 오름차순으로 정렬한다.
+  // 1. 1에서 45사이의 숫자 중 랜덤 숫자를 만든다. @
+  // 2. 이전에 만든 숫자와 중복이 되는지 확인한다. @
+  // 3. 중복이면 1, 2를 다시 진행한다. @
+  // 4. 중복이 아니라면 배열에 넣는다. @
+  // 5. 위 과정을 숫자가 6개가 될 때까지 반복한다. @
+  // 6. 만들어진 6개의 랜덤 숫자를 오름차순으로 정렬한다. @
   return lottoSet;
 }
 ```
 
-#### 2.5. 특정 범위의 랜덤 숫자 만드는 함수
+#### 2.5. 특정 범위의 랜덤 숫자 만드는 함수 @
 ```javascript
 function getRandomNumber(min, max) {
   // 1. min과 max를 포함한 범위의 랜덤 숫자 1개를 만든다.
   return randomNumber;
+}
+```
+
+#### 2.6. 입력 개수만큼 로또를 만드는 함수 @
+```javascript
+function getLottoSetList(numberOfLottos) {
+  // 1. numberOfLottos 만큼 로또를 발행해서 하나의 리스트로 만든다.
+  return lottoSetList;
 }
 ```
