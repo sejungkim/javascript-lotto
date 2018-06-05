@@ -82,3 +82,24 @@ function getLottoSetList(numberOfLottos) {
   return lottoSetList;
 }
 ```
+
+#### 2.7. 당첨번호 확인하는 함수
+```javascript
+function setLuckyNumber(luckyNumber) {
+  // 1. 입력받은 luckyNumber의 유효성을 검사한다.
+  // 2. 발행된 로또번호와 당첨번호를 비교한다.
+  // 3. 당첨 결과를 출력한다
+  // 4. 수익률을 계산한다.
+  // 5. 수익률을 출력한다.
+}
+```
+
+#### 2.8. 입력받은 당첨번호 유효성 검사하는 함수
+```javascript
+function validateLuckyNum(luckyNumber) {
+  // 1. 배열인지 검사
+  // 2. 6자리인지 검사
+  // 3. 정수형 숫자인지 검사
+  // 4. 1부터 45사이의 숫자인지 검사
+}
+```
