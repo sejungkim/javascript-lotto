@@ -5,9 +5,9 @@ let lottoSetList = [];
 function buyLottos(money) {
   const lottoPrice = 1000;
 
-  checkMoneyValid(money, lottoPrice);
+  validateMoney(money, lottoPrice);
 
-  // Number of lottos for money
+  // Get number of lottos for money
   const numberOfLottos = getNumberOfLottos(money, lottoPrice);
   console.log(`>> 로또 ${numberOfLottos}개를 발행했습니다.`);
 
@@ -16,7 +16,7 @@ function buyLottos(money) {
   lottoSetList.forEach(lottoSet => console.log(lottoSet));
 }
 
-function checkMoneyValid(money, lottoPrice) {
+function validateMoney(money, lottoPrice) {
   if (!Number.isInteger(money)) {
     throw `>> [!] 잘못된 입력입니다.`;
   }
@@ -26,8 +26,7 @@ function checkMoneyValid(money, lottoPrice) {
 }
 
 function getNumberOfLottos(money, lottoPrice) {
-  const numberOfLottos = Math.floor(money / lottoPrice);
-  return numberOfLottos;
+  return Math.floor(money / lottoPrice);
 }
 
 function getLottoSet() {

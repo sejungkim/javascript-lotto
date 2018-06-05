@@ -39,7 +39,7 @@ function buyLottos(money) {
 
 #### 2.2. 입력받은 돈의 유효성을 검사하는 함수 @
 ```javascript
-function checkMoneyValid(money, lottoPrice) {
+function validateMoney(money, lottoPrice) {
   // 1. 올바른 입력 검사 @
   // 2. 최소 금액 검사 @
 }
