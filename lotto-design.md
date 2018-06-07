@@ -39,8 +39,8 @@ function buyLottos(money) {
 
 #### 2.2. 입력받은 돈의 유효성을 검사하는 함수 @
 ```javascript
-function validateMoney(money, lottoPrice) {
-  // 1. 올바른 입력 검사 @
+function validateMoney(money, minAmount) {
+  // 1. 올바른 입력 검사 - 정수형 숫자인지? @
   // 2. 최소 금액 검사 @
 }
 ```
@@ -56,7 +56,7 @@ function getNumberOfLottos(money, lottoPrice) {
 
 #### 2.4. 로또 조합 만드는 함수 @
 ```javascript
-function getLottoSet() {
+function getLottoSet(lotto) {
   // 1. 1에서 45사이의 숫자 중 랜덤 숫자를 만든다. @
   // 2. 이전에 만든 숫자와 중복이 되는지 확인한다. @
   // 3. 중복이면 1, 2를 다시 진행한다. @
@@ -77,7 +77,7 @@ function getRandomNumber(min, max) {
 
 #### 2.6. 입력 개수만큼 로또를 만드는 함수 @
 ```javascript
-function getLottoSetList(numberOfLottos) {
+function getLottoSetList(numberOfLottos, lotto) {
   // 1. numberOfLottos 만큼 로또를 발행해서 하나의 리스트로 만든다.
   return lottoSetList;
 }
