@@ -58,5 +58,26 @@ function getLottoSetList(numberOfLottos, lotto) {
   return lottoSetList;
 }
 
-// run
+// Set lucky number
+function setLuckyNumber(luckyNum, lotto = lottoInfo) {
+  validateLuckyNum(luckyNum, lotto);
+}
+
+function validateLuckyNum(luckyNum, lotto) {
+  if (!Array.isArray(luckyNum)) {
+    throw `>> [!] 배열 형태의 당첨번호를 입력해주세요.`;
+  }
+  if (luckyNum.filter(val => val !== undefined).length !== lotto.length) {
+    throw `>> [!] ${lotto.length}자리의 당첨번호를 입력해주세요.`;
+  }
+  if (!luckyNum.every(num => Number.isInteger(num))) {
+    throw `>> [!] 숫자로 된 당첨번호를 입력해주세요.`;
+  }
+  if (!luckyNum.every(num => num >= lotto.minNum && num <= lotto.maxNum)) {
+    throw `>> [!] ${lotto.minNum}과 ${lotto.maxNum}사이의 당첨번호를 입력해주세요.`;
+  }
+}
+
+// Run
 buyLottos(5000);
+setLuckyNumber([1, 2, 3, 4, 5, 6]);
