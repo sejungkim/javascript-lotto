@@ -103,3 +103,15 @@ function validateLuckyNum(luckyNumber, lotto) {
   // 4. 1부터 45사이의 숫자인지 검사 @
 }
 ```
+
+#### 2.9. 당첨을 확인하여 결과를 얻는 함수
+```javascript
+function getWinningResult(luckyNumber, lottoSet, lotto) {
+  // 1. 당첨번호와 로또를 비교하여 일치하는 숫자를 찾는다.
+  //  - 당첨번호의 첫번째 숫자가 로또 조합에 있는지 확인
+  //  - 있다면 매칭 결과에 저장
+  //  - 위의 두가지를 당첨번호 끝까지 반복
+  // 2. 일치하는 개수와 개수에 따른 당첨금을 결과에 추가한다.
+  return winningResult;
+}
+```
