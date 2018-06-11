@@ -75,15 +75,7 @@ function getRandomNumber(min, max) {
 }
 ```
 
-#### 2.6. 입력 개수만큼 로또를 만드는 함수 @
-```javascript
-function getLottoSetList(numberOfLottos, lotto) {
-  // 1. numberOfLottos 만큼 로또를 발행해서 하나의 리스트로 만든다.
-  return lottoSetList;
-}
-```
-
-#### 2.7. 당첨번호 확인하는 함수
+#### 2.6. 당첨번호 확인하는 함수
 ```javascript
 function setLuckyNumber(luckyNumber) {
   // 1. 입력받은 luckyNumber의 유효성을 검사한다. @
@@ -94,7 +86,7 @@ function setLuckyNumber(luckyNumber) {
 }
 ```
 
-#### 2.8. 입력받은 당첨번호 유효성 검사하는 함수 @
+#### 2.7. 입력받은 당첨번호 유효성 검사하는 함수 @
 ```javascript
 function validateLuckyNum(luckyNumber, lotto) {
   // 1. 배열인지 검사 @
@@ -104,14 +96,13 @@ function validateLuckyNum(luckyNumber, lotto) {
 }
 ```
 
-#### 2.9. 당첨을 확인하여 결과를 얻는 함수
+#### 2.8. 당첨을 확인하여 결과를 얻는 함수 @
 ```javascript
-function getWinningResult(luckyNumber, lottoSet, lotto) {
+function getWinningResult(luckyNumber, lottoSet) {
   // 1. 당첨번호와 로또를 비교하여 일치하는 숫자를 찾는다.
   //  - 당첨번호의 첫번째 숫자가 로또 조합에 있는지 확인
   //  - 있다면 매칭 결과에 저장
   //  - 위의 두가지를 당첨번호 끝까지 반복
-  // 2. 일치하는 개수와 개수에 따른 당첨금을 결과에 추가한다.
   return winningResult;
 }
 ```

@@ -4,7 +4,13 @@ const lottoInfo = {
   'minNum': 1,
   'maxNum': 45,
   'length': 6,
-  'price': 1000
+  'price': 1000,
+  'prize': {
+    '3matches': 5000,
+    '4matches': 50000,
+    '5matches': 1500000,
+    '6matches': 2000000000
+  }
 };
 const lottoList = [];
 
@@ -17,7 +23,9 @@ function buyLottos(money, lotto = lottoInfo, lottoSetList = lottoList) {
   console.log(`>> 로또 ${numberOfLottos}개를 발행했습니다.`);
 
   // Create list of lottos
-  lottoSetList = getLottoSetList(numberOfLottos, lotto);
+  while (lottoSetList.length < numberOfLottos) {
+    lottoSetList.push(getLottoSet(lotto));
+  }
   lottoSetList.forEach(lottoSet => console.log(lottoSet));
 }
 
@@ -50,17 +58,13 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * max + min);
 }
 
-function getLottoSetList(numberOfLottos, lotto) {
-  const lottoSetList = [];
-  while (lottoSetList.length < numberOfLottos) {
-    lottoSetList.push(getLottoSet(lotto));
-  }
-  return lottoSetList;
-}
-
 // Set lucky number
-function setLuckyNumber(luckyNum, lotto = lottoInfo) {
+function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
   validateLuckyNum(luckyNum, lotto);
+
+  const winningResultList = lottoSetList.map(lottoSet =>
+    getWinningResult(luckyNum, lottoSet)
+  );
 }
 
 function validateLuckyNum(luckyNum, lotto) {
@@ -76,6 +80,14 @@ function validateLuckyNum(luckyNum, lotto) {
   if (!luckyNum.every(num => num >= lotto.minNum && num <= lotto.maxNum)) {
     throw `>> [!] ${lotto.minNum}과 ${lotto.maxNum}사이의 당첨번호를 입력해주세요.`;
   }
+}
+
+function getWinningResult(luckyNum, lottoSet) {
+  const matchingNums = lottoSet.filter(num => luckyNum.includes(num));
+  return {
+    lottoSet,
+    matchingNums
+  };
 }
 
 // Run
