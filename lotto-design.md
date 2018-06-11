@@ -79,7 +79,7 @@ function getRandomNumber(min, max) {
 ```javascript
 function setLuckyNumber(luckyNumber) {
   // 1. 입력받은 luckyNumber의 유효성을 검사한다. @
-  // 2. 발행된 로또번호와 당첨번호를 비교한다.
+  // 2. 발행된 로또번호와 당첨번호를 비교한다. @
   // 3. 당첨 결과를 출력한다
   // 4. 수익률을 계산한다.
   // 5. 수익률을 출력한다.
@@ -104,5 +104,29 @@ function getWinningResult(luckyNumber, lottoSet) {
   //  - 있다면 매칭 결과에 저장
   //  - 위의 두가지를 당첨번호 끝까지 반복
   return winningResult;
+}
+```
+
+#### 2.9. 당첨 통계를 얻는 함수
+```javascript
+function getWinningStatistic(winningResultList, lotto) {
+  // 1. 당첨결과를 이용하여 3, 4, 5, 6개 일치가 각각 몇 개인지 저장한다.
+  // 2. 총 수익을 계산하여 저장한다.
+  return winningStatistic;
+}
+```
+
+#### 2.10. 당첨 통계를 출력하는 함수
+```javascript
+function showWinningStatistic(winningStatistic, lotto) {
+  // 1. 당첨 통계를 정해진 포맷대로 출력한다.
+}
+```
+
+#### 2.11. 수익률을 계산하는 함수
+```javascript
+function getRateOfReturn(winningStatistic, lottoSetList) {
+  // 1. 수익률을 계산한다. (번 돈 - 쓴 돈) / 쓴 돈 * 100
+  return rateOfReturn;
 }
 ```
