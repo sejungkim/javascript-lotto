@@ -5,12 +5,22 @@ const lottoInfo = {
   'maxNum': 45,
   'length': 6,
   'price': 1000,
-  'prize': {
-    '3matches': 5000,
-    '4matches': 50000,
-    '5matches': 1500000,
-    '6matches': 2000000000
-  }
+  'prizeList': [{
+    'matchingCount': 3,
+    'reward': 5000
+  },
+  {
+    'matchingCount': 4,
+    'reward': 50000
+  },
+  {
+    'matchingCount': 5,
+    'reward': 1500000
+  },
+  {
+    'matchingCount': 6,
+    'reward': 2000000000
+  }]
 };
 const lottoList = [];
 
@@ -62,9 +72,10 @@ function getRandomNumber(min, max) {
 function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
   validateLuckyNum(luckyNum, lotto);
 
-  const winningResultList = lottoSetList.map(lottoSet =>
-    getWinningResult(luckyNum, lottoSet)
+  const matchingResultList = lottoSetList.map(lottoSet =>
+    getMatchingResult(luckyNum, lottoSet)
   );
+  console.log(matchingResultList);
 }
 
 function validateLuckyNum(luckyNum, lotto) {
@@ -82,11 +93,13 @@ function validateLuckyNum(luckyNum, lotto) {
   }
 }
 
-function getWinningResult(luckyNum, lottoSet) {
+function getMatchingResult(luckyNum, lottoSet) {
   const matchingNums = lottoSet.filter(num => luckyNum.includes(num));
+  const matchingCount = matchingNums.length;
   return {
     lottoSet,
-    matchingNums
+    matchingNums,
+    matchingCount
   };
 }
 
