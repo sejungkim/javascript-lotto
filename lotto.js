@@ -36,6 +36,8 @@ function buyLottos(money, lotto = lottoInfo, lottoSetList = lottoList) {
   while (lottoSetList.length < numberOfLottos) {
     lottoSetList.push(getLottoSet(lotto));
   }
+
+  // Print lotto list
   lottoSetList.forEach(lottoSet => console.log(lottoSet));
 }
 
@@ -72,10 +74,13 @@ function getRandomNumber(min, max) {
 function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
   validateLuckyNum(luckyNum, lotto);
 
+  // Get result match with lucky number for all lottos
   const matchingResultList = lottoSetList.map(lottoSet =>
     getMatchingResult(luckyNum, lottoSet)
   );
-  console.log(matchingResultList);
+
+  // Get winning statistic
+  const winningStat = getWinningStatistic(matchingResultList, lotto.prizeList);
 }
 
 function validateLuckyNum(luckyNum, lotto) {
@@ -96,11 +101,28 @@ function validateLuckyNum(luckyNum, lotto) {
 function getMatchingResult(luckyNum, lottoSet) {
   const matchingNums = lottoSet.filter(num => luckyNum.includes(num));
   const matchingCount = matchingNums.length;
+
   return {
     lottoSet,
     matchingNums,
     matchingCount
   };
+}
+
+function getWinningStatistic(matchingResultList, prizeList) {
+  // Make winning statistic object and initializing
+  const winningStatistic = prizeList.reduce((winningStat, prizeInfo) => {
+    winningStat[prizeInfo.matchingCount] = 0;
+    return winningStat;
+  }, {});
+
+  // Count winning result
+  matchingResultList.forEach(matchingResult => {
+    if (matchingResult.matchingCount in winningStatistic) {
+      winningStatistic[matchingResult.matchingCount]++;
+    }
+  });
+  return winningStatistic;
 }
 
 // Run

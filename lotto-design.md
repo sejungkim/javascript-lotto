@@ -107,11 +107,10 @@ function getMatchingResult(luckyNum, lottoSet) {
 }
 ```
 
-#### 2.9. 당첨 통계를 얻는 함수
+#### 2.9. 당첨 통계를 얻는 함수 @
 ```javascript
 function getWinningStatistic(winningResultList, lotto) {
-  // 1. 당첨결과를 이용하여 3, 4, 5, 6개 일치가 각각 몇 개인지 저장한다.
-  // 2. 총 수익을 계산하여 저장한다.
+  // 1. 당첨결과를 이용하여 3, 4, 5, 6개 일치가 각각 몇 개인지 저장한다. @
   return winningStatistic;
 }
 ```
