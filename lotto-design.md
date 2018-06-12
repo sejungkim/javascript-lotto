@@ -115,10 +115,10 @@ function getWinningStatistic(winningResultList, lotto) {
 }
 ```
 
-#### 2.10. 당첨 통계를 출력하는 함수
+#### 2.10. 당첨 통계를 출력하는 함수 @
 ```javascript
 function showWinningStatistic(winningStatistic, lotto) {
-  // 1. 당첨 통계를 정해진 포맷대로 출력한다.
+  // 1. 당첨 통계를 정해진 포맷대로 출력한다. @
 }
 ```
 

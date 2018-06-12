@@ -81,6 +81,7 @@ function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
 
   // Get winning statistic
   const winningStat = getWinningStatistic(matchingResultList, lotto.prizeList);
+  showWinningStatistic(winningStat, lotto.prizeList);
 }
 
 function validateLuckyNum(luckyNum, lotto) {
@@ -122,7 +123,19 @@ function getWinningStatistic(matchingResultList, prizeList) {
       winningStatistic[matchingResult.matchingCount]++;
     }
   });
+
   return winningStatistic;
+}
+
+function showWinningStatistic(winningStat, prizeList) {
+  const resultMsg = prizeList.reduce((msg, prizeInfo) => {
+    return msg += `${prizeInfo.matchingCount}개 일치 (${prizeInfo.reward}원) - `
+      + `${winningStat[prizeInfo.matchingCount]}개\n`;
+  }, '');
+
+  console.log(`>> 당첨 통계`);
+  console.log(`----------`);
+  console.log(resultMsg);
 }
 
 // Run
