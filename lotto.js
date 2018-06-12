@@ -82,6 +82,10 @@ function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
   // Get winning statistic
   const winningStat = getWinningStatistic(matchingResultList, lotto.prizeList);
   showWinningStatistic(winningStat, lotto.prizeList);
+
+  // Rate of return
+  const rateOfReturn = getRateOfReturn(winningStat, lotto, lottoSetList);
+  console.log(`>> 나의 수익률은 ${rateOfReturn}% 입니다.`);
 }
 
 function validateLuckyNum(luckyNum, lotto) {
@@ -136,6 +140,23 @@ function showWinningStatistic(winningStat, prizeList) {
   console.log(`>> 당첨 통계`);
   console.log(`----------`);
   console.log(resultMsg);
+}
+
+function getRateOfReturn(winningStat, lotto, lottoSetList) {
+  const moneySpent = lotto.price * lottoSetList.length;
+
+  let profit = 0;
+  for (let winType in winningStat) {
+    if (winningStat[winType]) {
+      let prizeMoney = lotto.prizeList.find(prize =>
+        prize.matchingCount == winType
+      ).reward;
+      profit += winningStat[winType] * prizeMoney;
+    }
+  }
+
+  const rateOfReturn = (profit - moneySpent) / moneySpent * 100;
+  return rateOfReturn < 0 ? 0 : Math.floor(rateOfReturn);
 }
 
 // Run

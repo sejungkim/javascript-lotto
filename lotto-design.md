@@ -75,14 +75,14 @@ function getRandomNumber(min, max) {
 }
 ```
 
-#### 2.6. 당첨번호 확인하는 함수
+#### 2.6. 당첨번호 확인하는 함수 @
 ```javascript
 function setLuckyNumber(luckyNumber) {
   // 1. 입력받은 luckyNumber의 유효성을 검사한다. @
   // 2. 발행된 로또번호와 당첨번호를 비교한다. @
-  // 3. 당첨 결과를 출력한다
-  // 4. 수익률을 계산한다.
-  // 5. 수익률을 출력한다.
+  // 3. 당첨 결과를 출력한다 @
+  // 4. 수익률을 계산한다. @
+  // 5. 수익률을 출력한다. @
 }
 ```
 
@@ -122,10 +122,10 @@ function showWinningStatistic(winningStatistic, lotto) {
 }
 ```
 
-#### 2.11. 수익률을 계산하는 함수
+#### 2.11. 수익률을 계산하는 함수 @
 ```javascript
-function getRateOfReturn(winningStatistic, lottoSetList) {
-  // 1. 수익률을 계산한다. (번 돈 - 쓴 돈) / 쓴 돈 * 100
+function getRateOfReturn(winningStatistic, lotto, lottoSetList) {
+  // 1. 수익률을 계산한다. (번 돈 - 쓴 돈) / 쓴 돈 * 100 @
   return rateOfReturn;
 }
 ```
