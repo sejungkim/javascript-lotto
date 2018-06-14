@@ -145,17 +145,14 @@ function showWinningStatistic(winningStat, prizeList) {
 function getRateOfReturn(winningStat, lotto, lottoSetList) {
   const moneySpent = lotto.price * lottoSetList.length;
 
-  let profit = 0;
-  for (let winType in winningStat) {
-    if (winningStat[winType]) {
-      let prizeMoney = lotto.prizeList.find(prize =>
-        prize.matchingCount == winType
-      ).reward;
-      profit += winningStat[winType] * prizeMoney;
+  const totalProfit = lotto.prizeList.reduce((profit, prizeType) => {
+    if (winningStat[prizeType.matchingCount]) {
+      profit += winningStat[prizeType.matchingCount] * prizeType.reward;
     }
-  }
+    return profit;
+  }, 0);
 
-  const rateOfReturn = (profit - moneySpent) / moneySpent * 100;
+  const rateOfReturn = (totalProfit - moneySpent) / moneySpent * 100;
   return rateOfReturn < 0 ? 0 : Math.floor(rateOfReturn);
 }
 
