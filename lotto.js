@@ -26,7 +26,11 @@ const lottoList = [];
 
 // Buy Lottos
 function buyLottos(money, lotto = lottoInfo, lottoSetList = lottoList) {
-  validateMoney(money, lotto.price);
+  try {
+    validateMoney(money, lotto.price);
+  } catch (err) {
+    return console.error(err);
+  }
 
   // Get number of lottos for money
   const numberOfLottos = getNumberOfLottos(money, lotto.price);
@@ -72,7 +76,11 @@ function getRandomNumber(min, max) {
 
 // Set lucky number
 function setLuckyNumber(luckyNum, lotto = lottoInfo, lottoSetList = lottoList) {
-  validateLuckyNum(luckyNum, lotto);
+  try {
+    validateLuckyNum(luckyNum, lotto);
+  } catch (err) {
+    return console.error(err);
+  }
 
   // Get result match with lucky number for all lottos
   const matchingResultList = lottoSetList.map(lottoSet =>
