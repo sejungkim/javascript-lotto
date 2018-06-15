@@ -22,10 +22,9 @@ const lottoInfo = {
     'reward': 2000000000
   }]
 };
-const lottoList = [];
 
 // Buy Lottos
-function buyLottos(money, lotto = lottoInfo, lottoSetList = lottoList) {
+function buyLottos(money, lotto = lottoInfo) {
   try {
     validateMoney(money, lotto.price);
   } catch (err) {
@@ -34,15 +33,14 @@ function buyLottos(money, lotto = lottoInfo, lottoSetList = lottoList) {
 
   // Get number of lottos for money
   const numberOfLottos = getNumberOfLottos(money, lotto.price);
-  console.log(`>> 로또 ${numberOfLottos}개를 발행했습니다.`);
 
   // Create list of lottos
+  const lottoSetList = [];
   while (lottoSetList.length < numberOfLottos) {
     lottoSetList.push(getLottoSet(lotto));
   }
 
-  // Print lotto list
-  lottoSetList.forEach(lottoSet => console.log(lottoSet));
+  return lottoSetList;
 }
 
 function validateMoney(money, minAmount) {
@@ -164,6 +162,14 @@ function getRateOfReturn(winningStat, lotto, lottoSetList) {
   return rateOfReturn < 0 ? 0 : Math.floor(rateOfReturn);
 }
 
+function showLottoSetList(lottoSetList) {
+  console.log(`>> 로또 ${lottoSetList.length}개를 발행했습니다.`);
+  lottoSetList.forEach(lottoSet => console.log(lottoSet));
+}
+
 // Run
-buyLottos(5000);
-setLuckyNumber([1, 2, 3, 4, 5, 6]);
+const lottoList = buyLottos(5000);
+if (lottoList) {
+  showLottoSetList(lottoList);
+  setLuckyNumber([1, 2, 3, 4, 5, 6]);
+}
