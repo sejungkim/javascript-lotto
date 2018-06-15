@@ -169,7 +169,7 @@ function showLottoSetList(lottoSetList) {
 
 // Run
 const lottoList = buyLottos(5000);
-if (lottoList) {
+if (Array.isArray(lottoList)) {
   showLottoSetList(lottoList);
   setLuckyNumber([1, 2, 3, 4, 5, 6]);
 }
